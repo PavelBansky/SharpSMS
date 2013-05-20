@@ -33,7 +33,6 @@ namespace Samples
             sms.MessageToSend = textMessage;
             sms.Indication.Class = MessageClass.ImmediateDisplay;
             
-
             return sms;
         }
 
@@ -66,11 +65,8 @@ namespace Samples
         }
 
         public static SMSSubmit DeactivateVoicemailIndication()
-        {
-            TextMessage textMessage = new TextMessage();            
-
-            SMSSubmit sms = new SMSSubmit();
-            sms.MessageToSend = textMessage;
+        {       
+            SMSSubmit sms = new SMSSubmit(new TextMessage());
 
             sms.Indication.Operation = MessageIndicationOperation.Discard;
             sms.Indication.Type = IndicationType.Voicemail;            
@@ -84,7 +80,7 @@ namespace Samples
             ServiceIndication si = new ServiceIndication();
             si.Action = ServiceIndicationAction.Signal_medium;
             si.Text = "Service indication from SharpSMS";
-            si.Href = "http://bansky.net";
+            si.Href = "https://github.com/pavel-b/SharpSMS";
             si.Expires = DateTime.Now.AddDays(3);
 
             WapPushMessage wapPushMessage = new WapPushMessage(si);
@@ -108,7 +104,7 @@ namespace Samples
         public static SMSSubmit WapPushConfiguration()
         {
             // This is a configuration XML for Windows Mobile Internet Explorer Favorites
-            string configXML = @"<wap-provisioningdoc><characteristic type=""BrowserFavorite""><characteristic type=""Blog""><parm name=""URL"" value=""http://bansky.net""/></characteristic></characteristic></wap-provisioningdoc>";
+            string configXML = @"<wap-provisioningdoc><characteristic type=""BrowserFavorite""><characteristic type=""SharpSMS""><parm name=""URL"" value=""https://github.com/pavel-b/SharpSMS""/></characteristic></characteristic></wap-provisioningdoc>";
 
             WapPushMessage wapPushMessage = new WapPushMessage();
             wapPushMessage.XWapInitiatorURI = "SharpSMS";
