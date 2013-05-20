@@ -80,7 +80,7 @@ namespace Samples
             ServiceIndication si = new ServiceIndication();
             si.Action = ServiceIndicationAction.Signal_medium;
             si.Text = "Service indication from SharpSMS";
-            si.Href = "https://github.com/pavel-b/SharpSMS";
+            si.Href = "https://github.com/pbansky/SharpSMS";
             si.Expires = DateTime.Now.AddDays(3);
 
             WapPushMessage wapPushMessage = new WapPushMessage(si);
@@ -104,7 +104,7 @@ namespace Samples
         public static SMSSubmit WapPushConfiguration()
         {
             // This is a configuration XML for Windows Mobile Internet Explorer Favorites
-            string configXML = @"<wap-provisioningdoc><characteristic type=""BrowserFavorite""><characteristic type=""SharpSMS""><parm name=""URL"" value=""https://github.com/pavel-b/SharpSMS""/></characteristic></characteristic></wap-provisioningdoc>";
+            string configXML = @"<wap-provisioningdoc><characteristic type=""BrowserFavorite""><characteristic type=""SharpSMS""><parm name=""URL"" value=""https://github.com/pbansky/SharpSMS""/></characteristic></characteristic></wap-provisioningdoc>";
 
             WapPushMessage wapPushMessage = new WapPushMessage();
             wapPushMessage.XWapInitiatorURI = "SharpSMS";

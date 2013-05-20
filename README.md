@@ -82,7 +82,7 @@ SMS message can contain user data header, which extends possibilities to address
 However, some Android devices are equipped with push router, that can process OTA provisioning messages.
 Following code will create Wap Push message with configuration for Windows Mobile. Message will be signed with user PIN, so user has to enter the PIN in order for message to be processed:
 
-    string configXML = @"<wap-provisioningdoc><characteristic type=""BrowserFavorite""><characteristic type=""SharpSMS""><parm name=""URL"" value=""https://github.com/pavel-b/SharpSMS""/></characteristic></characteristic></wap-provisioningdoc>";
+    string configXML = @"<wap-provisioningdoc><characteristic type=""BrowserFavorite""><characteristic type=""SharpSMS""><parm name=""URL"" value=""https://github.com/pbansky/SharpSMS""/></characteristic></characteristic></wap-provisioningdoc>";
 
     WapPushMessage wapPushMessage = new WapPushMessage();
     wapPushMessage.XWapInitiatorURI = "SharpSMS";
