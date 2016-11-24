@@ -150,7 +150,7 @@ namespace SharpSMS
             parts = (int)Math.Ceiling((double)(body.Length + parts*messageUdh.Length) / (double)maxLen);
 
             if (parts > 1)
-                parts = (int)Math.Ceiling((double)(body.Length + parts * messageUdh.Length + parts * CONCATED_UDH_FULL_LENGTH) / (double)maxLen);
+                parts = (int)Math.Ceiling((double)(body.Length + parts * messageUdh.Length + parts * (CONCATED_UDH_FULL_LENGTH + 1)) / (double)maxLen);
 
             List<byte[]> messagePart = new List<byte[]>();
             byte[] udhByteArray;
