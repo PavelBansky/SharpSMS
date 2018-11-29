@@ -35,7 +35,10 @@ namespace SharpSMS
         /// User data header - Length of concated message length
         /// </summary>
         public const byte PDU_UDH_CONCATED_MESSAGE_16BIT_HEADERLENGTH = 0x04;
-        
+        /// <summary>
+        /// User data header - Length of concated header
+        /// </summary>
+        public const byte CONCATED_UDH_FULL_LENGTH = 0x07;
 
         #endregion
 
@@ -145,7 +148,10 @@ namespace SharpSMS
             // Count parts
             int parts = (int)Math.Ceiling((double)body.Length / (double)maxLen);
             parts = (int)Math.Ceiling((double)(body.Length + parts*messageUdh.Length) / (double)maxLen);
-           
+
+            if (parts > 1)
+                parts = (int)Math.Ceiling((double)(body.Length + parts * messageUdh.Length + parts * (CONCATED_UDH_FULL_LENGTH + 1)) / (double)maxLen);
+
             List<byte[]> messagePart = new List<byte[]>();
             byte[] udhByteArray;
             byte[] messageByteArray;
